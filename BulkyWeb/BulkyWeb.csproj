@@ -48,6 +48,8 @@
     <Folder Include="Areas\Admin\Views\Category\" />
     <Folder Include="Areas\Customer\Views\Home\" />
     <Folder Include="Areas\Admin\Views\Product\" />
+    <Folder Include="wwwroot\Images\" />
+    <Folder Include="wwwroot\Images\Product\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bulky.DataAccess\Bulky.DataAccess.csproj">
@@ -56,5 +58,9 @@
     <ProjectReference Include="..\Bulky.Models\Bulky.Models.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\Images\" />
+    <Content Remove="wwwroot\Images\Product\" />
   </ItemGroup>
 </Project>

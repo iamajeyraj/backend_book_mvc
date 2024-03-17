@@ -14,7 +14,7 @@
 
             </div>
             <div class="col-6 text-end">
-                <a asp-area="Admin" asp-controller="Product" asp-action="Create" class="btn btn-primary">
+                <a asp-area="Admin" asp-controller="Product" asp-action="Upsert" class="btn btn-primary">
                     Create New Product <i class="bi bi-plus-circle"></i>
                 </a>
             </div>
@@ -36,11 +36,11 @@
                             <td> @product.Author  </td>
                             <td> @product.ListPrice  </td>
                             <td>
-                                <div class="w-75 btn-group" role="group">
-                                    <a class="btn btn-primary mx-3" asp-area="Admin" asp-controller="Product" asp-action="Edit" asp-route-id="@product.Id">
+                                <div class="w-100" role="group">
+                                    <a class="btn w-25 btn-primary mx-3" asp-area="Admin" asp-controller="Product" asp-action="Upsert" asp-route-id="@product.Id">
                                         Edit <i class="bi bi-pencil-square"></i>
                                     </a>
-                                    <a class="btn btn-primary mx-3" asp-area="Admin" asp-controller="Product" asp-action="Delete" asp-route-id="@product.Id">
+                                    <a class="btn w-25 mx-3  btn-outline border-danger" asp-area="Admin" asp-controller="Product" asp-action="Delete" asp-route-id="@product.Id">
                                         Delete <i class="bi bi-trash"></i>
                                     </a>
                                 </div>
