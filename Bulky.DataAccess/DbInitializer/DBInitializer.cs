@@ -38,14 +38,15 @@ namespace Bulky.DataAccess.DbInitializer {
                 roleManager.CreateAsync(new IdentityRole(ApplicationConstants.ROLE_EMPLOYEE)).GetAwaiter().GetResult();
 
                 UserManager.CreateAsync(new ApplicationUser {
-                    Name = "AdminUser",
                     UserName = "ajaypandiyaraj@gmail.com",
                     Email = "ajaypandiyaraj@gmail.com",
+                    EmailConfirmed = true,
+                    Name = "ajey pandiyaraj",
                     PhoneNumber = "5195740975",
                     Address = "test 123 ave",
                     City = "Waterloo",
                     State = "Ontario",
-                    PostalCode = "N2V 0E2"
+                    PostalCode = "N2V 0E2",
                 }, "Bustedlife@007").GetAwaiter().GetResult();
 
                 var user = dbContext.applicationUsers.FirstOrDefault(x => x.Email == "ajaypandiyaraj@gmail.com");
