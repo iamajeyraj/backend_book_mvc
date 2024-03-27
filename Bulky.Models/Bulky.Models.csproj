@@ -9,6 +9,8 @@
   <ItemGroup>
      <FrameworkReference Include="Microsoft.AspNetCore.App" Version="7.0.5" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.5" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.5" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="ViewModels\" />

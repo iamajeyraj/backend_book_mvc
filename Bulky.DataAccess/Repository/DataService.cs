@@ -12,20 +12,37 @@ namespace Bulky.DataAccess.Repository {
         public DataService(ApplicationDbContext dbContext) {
             this.dbContext = dbContext;
             dbSet = this.dbContext.Set<T>();
+            dbContext.products.Include(x => x.Category).Include(x => x.CategoryId);
         }
 
         public void Add(T entity) {
             dbSet.Add(entity);
         }
 
-        public T Get(System.Linq.Expressions.Expression<Func<T, bool>> filter) {
-            IQueryable<T> query = dbSet;
+        public T Get(System.Linq.Expressions.Expression<Func<T, bool>> filter, string? includeProperties = null,bool isTracked = false) {
+            IQueryable<T> query = isTracked ? dbSet : dbSet.AsNoTracking();
             query = query.Where(filter);
+
+            if(!string.IsNullOrEmpty(includeProperties)) {
+                foreach(var includeProp in includeProperties
+                    .Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)) {
+                    query = query.Include(includeProp);
+                }
+            }
             return query.FirstOrDefault();
         }
 
-        public List<T> GetAll() {
+        public List<T> GetAll(System.Linq.Expressions.Expression<Func<T, bool>>? filter, string? includeProperties = null) {
             IQueryable<T> query = dbSet;
+            if(filter != null)
+                query = query.Where(filter);
+
+            if(!string.IsNullOrEmpty(includeProperties)) {
+                foreach(var includeProp in includeProperties
+                    .Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)) {
+                    query = query.Include(includeProp);
+                }
+            }
             return query.ToList();
         }
 

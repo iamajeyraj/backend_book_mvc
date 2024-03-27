@@ -20,35 +20,22 @@
             </div>
         </div>
         <div class="pt-3">
-            <table class="table table-bordered table-striped">
+            <table id="tblData" class="table table-bordered table-striped">
                 <thead>
                     <tr>
                         <th> Product Title </th>
                         <th> Author </th>
+                        <th> Category </th>
                         <th> List Price </th>
+                        <th> Actions </th>
                     </tr>
                 </thead>
-                <tbody>
-                    @foreach (var product in Model)
-                    {
-                        <tr>
-                            <td> @product.Title  </td>
-                            <td> @product.Author  </td>
-                            <td> @product.ListPrice  </td>
-                            <td>
-                                <div class="w-100" role="group">
-                                    <a class="btn w-25 btn-primary mx-3" asp-area="Admin" asp-controller="Product" asp-action="Upsert" asp-route-id="@product.Id">
-                                        Edit <i class="bi bi-pencil-square"></i>
-                                    </a>
-                                    <a class="btn w-25 mx-3  btn-outline border-danger" asp-area="Admin" asp-controller="Product" asp-action="Delete" asp-route-id="@product.Id">
-                                        Delete <i class="bi bi-trash"></i>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
             </table>
         </div>
     </div>
 </div>
+
+
+@section Scripts{
+    <script src="~/js/product.js"></script>
+}
