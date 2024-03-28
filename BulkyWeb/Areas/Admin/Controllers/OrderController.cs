@@ -118,7 +118,7 @@ namespace BulkyWeb.Areas.Admin.Controllers {
         public IActionResult DetailsPayNow() {
             OrderVM.OrderHeader = unitOfWork.orderHeadersDataService.Get(x => x.Id == OrderVM.OrderHeader.Id,includeProperties:"ApplicationUser");
             OrderVM.OrderDetail = unitOfWork.orderDetailsDataService.GetAll(x => x.OrderHeaderId == OrderVM.OrderHeader.Id,"Product");
-            var domain = "https://localhost:7235";
+            var domain = $"{Request.Scheme}://{Request.Host.Value}/";
             var options = new Stripe.Checkout.SessionCreateOptions {
                 SuccessUrl = $"{domain}/admin/order/OrderConfirmation?orderHeaderId={OrderVM.OrderHeader.Id}",
                 CancelUrl = $"{domain}/admin/order/details?id={OrderVM.OrderHeader.Id}",
