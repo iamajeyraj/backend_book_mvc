@@ -12,6 +12,8 @@ namespace Bulky.DataAccess.Repository {
         public IApplicationUserDataService applicationUserDataService { get; private set; }
         public IOrderDetailsDataService orderDetailsDataService { get; private set; }
         public IOrderHeadersDataService orderHeadersDataService { get; private set; }
+        public IProductImageDataService productImageDataService { get; private set; }
+        public IUserRoleDataService userRoleDataService { get; private set; }
 
         ApplicationDbContext dbContext;
 
@@ -24,6 +26,8 @@ namespace Bulky.DataAccess.Repository {
             shoppingCart = new ShoppingCartDataService(dbContext);
             orderDetailsDataService = new OrderDetailsDataService(dbContext);
             orderHeadersDataService = new OrderHeadersDataService(dbContext);
+            productImageDataService = new ProductImageDataService(dbContext);
+            userRoleDataService = new UserRoleDataService(dbContext);
         }
 
         public void Save() {

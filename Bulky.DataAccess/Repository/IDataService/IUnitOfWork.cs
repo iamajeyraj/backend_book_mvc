@@ -11,6 +11,8 @@ namespace Bulky.DataAccess.Repository.IDataService {
         IApplicationUserDataService applicationUserDataService { get; }
         IOrderDetailsDataService orderDetailsDataService { get; }
         IOrderHeadersDataService orderHeadersDataService { get; }
+        IProductImageDataService productImageDataService { get; }
+        IUserRoleDataService userRoleDataService { get; }
         void Save();
 	}
 }

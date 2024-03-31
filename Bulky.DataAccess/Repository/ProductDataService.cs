@@ -24,9 +24,10 @@ namespace Bulky.DataAccess.Repository {
                 productFromDb.Price100 = product.Price100;
                 productFromDb.CategoryId = product.CategoryId;
                 productFromDb.Description = product.Description;
-                if(product.ImageUrl != null || string.IsNullOrEmpty(product.ImageUrl)) {
-                    productFromDb.ImageUrl = product.ImageUrl;
-                }
+                productFromDb.productImages = product.productImages;
+                //if(product.ImageUrl != null || string.IsNullOrEmpty(product.ImageUrl)) {
+                //    productFromDb.ImageUrl = product.ImageUrl;
+                //}
                 dbContext.products.Update(productFromDb);
             }
         }

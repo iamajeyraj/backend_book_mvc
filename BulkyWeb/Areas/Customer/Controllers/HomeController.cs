@@ -18,7 +18,7 @@ namespace BulkyWeb.Area.Customer.Controllers {
         }
 
         public IActionResult Index() {
-            IEnumerable<Product> products = unitOfWork.product.GetAll(includeProperties:"Category");
+            IEnumerable<Product> products = unitOfWork.product.GetAll(includeProperties:"Category,productImages");
             var index = HttpContext.Session.GetInt32(ApplicationConstants.SessionShoppingCart);
             return View(products);
         }
@@ -28,7 +28,7 @@ namespace BulkyWeb.Area.Customer.Controllers {
                 return NotFound();
             }
 
-            Product product = unitOfWork.product.Get(x => x.Id == id, includeProperties:"Category");
+            Product product = unitOfWork.product.Get(x => x.Id == id, includeProperties:"Category,productImages");
             ShoppingCart shoppingCart = new ShoppingCart() {
                 Product = product,
                 Count = 1,

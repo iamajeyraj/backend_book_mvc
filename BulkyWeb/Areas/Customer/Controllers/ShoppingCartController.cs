@@ -37,6 +37,9 @@ namespace BulkyWeb.Areas.Customer.Controllers {
                 shoppingCartList = unitOfWork.shoppingCart.GetAll(x => x.UserId == userId, "Product,ApplicationUser"),
                 OrderHeader = new()
             };
+            foreach(var item in sc.shoppingCartList) {
+                item.Product.productImages = unitOfWork.productImageDataService.GetAll(x => x.ProductId == item.ProductId);
+            }
             sc.GetOrderTotal();
             return View(sc);
         }

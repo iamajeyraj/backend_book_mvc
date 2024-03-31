@@ -14,6 +14,7 @@ namespace Bulky.DataAccess.Data {
         public DbSet<ShoppingCart> shoppingCart { get; set; }
         public DbSet<OrderHeader> orderHeaders { get; set; }
         public DbSet<OrderDetail> orderDetails { get; set; }
+        public DbSet<ProductImage> productImages { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) {
         }
@@ -38,7 +39,6 @@ namespace Bulky.DataAccess.Data {
                     Price50 = 85,
                     Price100 = 80,
                     CategoryId = 1,
-                    ImageUrl =""
                 },
                 new Product {
                     Id = 2,
@@ -51,7 +51,6 @@ namespace Bulky.DataAccess.Data {
                     Price50 = 25,
                     Price100 = 20,
                     CategoryId = 3,
-                    ImageUrl = ""
                 },
                 new Product {
                     Id = 3,
@@ -64,7 +63,6 @@ namespace Bulky.DataAccess.Data {
                     Price50 = 40,
                     Price100 = 35,
                     CategoryId = 2,
-                    ImageUrl = ""
                 },
                 new Product {
                     Id = 4,
@@ -77,7 +75,6 @@ namespace Bulky.DataAccess.Data {
                     Price50 = 60,
                     Price100 = 55,
                     CategoryId = 3,
-                    ImageUrl = ""
                 },
                 new Product {
                     Id = 5,
@@ -90,7 +87,6 @@ namespace Bulky.DataAccess.Data {
                     Price50 = 25,
                     Price100 = 20,
                     CategoryId = 1,
-                    ImageUrl = ""
                 },
                 new Product {
                     Id = 6,
@@ -103,7 +99,6 @@ namespace Bulky.DataAccess.Data {
                     Price50 = 22,
                     Price100 = 20,
                     CategoryId = 2,
-                    ImageUrl = ""
                 }
             );
         }
